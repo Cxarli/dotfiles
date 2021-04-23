@@ -1,0 +1,114 @@
+* {
+    background-color: @trans0;
+
+    background: #000836;
+    foreground: #ffffff;
+    selected-foreground: #f32385;
+
+    trans0: rgba(0,0,0, 0%);
+    trans10: rgba(0,0,0, 10%);
+    trans20: rgba(0,0,0, 20%);
+    trans30: rgba(0,0,0, 30%);
+    trans40: rgba(0,0,0, 40%);
+    trans50: rgba(0,0,0, 50%);
+    trans60: rgba(0,0,0, 60%);
+    trans70: rgba(0,0,0, 70%);
+    trans80: rgba(0,0,0, 80%);
+    trans90: rgba(0,0,0, 90%);
+    trans100: rgba(0,0,0, 100%);
+
+	/* normal */
+    normal-background: @background;
+    normal-foreground: @foreground;
+    alternate-normal-background: @normal-background;
+    alternate-normal-foreground: @foreground;
+    selected-normal-background: @trans80;
+    selected-normal-foreground: @selected-foreground;
+
+	/* active */
+    active-background: @background;
+    active-foreground: @foreground;
+    alternate-active-background: @active-background;
+    alternate-active-foreground: @active-foreground;
+    selected-active-background: @trans80;
+    selected-active-foreground: @selected-foreground;
+
+	/* urgent */
+    urgent-background: @background;
+    urgent-foreground: @foreground;
+    alternate-urgent-background: @urgent-background;
+    alternate-urgent-foreground: @urgent-foreground;
+    selected-urgent-background: @trans80;
+    selected-urgent-foreground: @selected-foreground;
+}
+
+window {
+    background-color: @background;
+    padding: 0 1ch 0.5ch 1ch;
+}
+
+message {
+    padding: 1px;
+}
+
+textbox {
+    text-color: @foreground;
+}
+
+element.normal.normal {
+    background-color: @normal-background;
+    text-color:       @normal-foreground;
+}
+element.normal.urgent {
+    background-color: @urgent-background;
+    text-color:       @urgent-foreground;
+}
+element.normal.active {
+    background-color: @active-background;
+    text-color:       @active-foreground;
+}
+
+element.selected.normal {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+element.selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color:       @selected-urgent-foreground;
+}
+element.selected.active {
+    background-color: @selected-active-background;
+    text-color:       @selected-active-foreground;
+}
+
+element.alternate.normal {
+    background-color: @alternate-normal-background;
+    text-color:       @alternate-normal-foreground;
+}
+element.alternate.urgent {
+    background-color: @alternate-urgent-background;
+    text-color:       @alternate-urgent-foreground;
+}
+element.alternate.active {
+    background-color: @alternate-active-background;
+    text-color:       @alternate-active-foreground;
+}
+
+inputbar {
+    text-color: @normal-foreground;
+}
+entry {
+    text-color: @normal-foreground;
+}
+prompt {
+    text-color: @normal-foreground;
+}
+inputbar {
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: @normal-foreground;
+}
