@@ -10,3 +10,5 @@ for f in $(echo *.conf | sort); do
 
     printf "\n\n" >> config
 done
+
+i3 -c config -C -V

@@ -17,6 +17,9 @@ autorandr --change || . $HOME/.screenlayout/home.sh
 # start terminal daemon
 urxvtd -f -o &> /tmp/urxvtd
 
+# ibus daemon
+ibus-daemon -dr
+
 # reload background
 nitrogen --restore &> /tmp/nitrogen
 
