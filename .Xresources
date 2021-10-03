@@ -1,16 +1,18 @@
 ! fix copy/paste
-URxvt.perl-ext-common: default,clipboard
+URxvt.perl-ext-common: default,clipboard,vtewheel
 URxvt.iso14755: False
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 
 ! fix style
 Xcursor.size: 12
-! URxvt.font: xft:Source Code Pro for Powerline:medium:size=11
-
-URxvt.font: xft:Meslo LG S for Powerline:medium:size=11
+URxvt.font: xft:Source Code Pro for Powerline:medium:size=11
+! URxvt.font: xft:Meslo LG S for Powerline:medium:size=110
 
 URxvt.scrollBar: false
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
 
 ! srsly in what age do we live
 URxvt*saveLines:1222333

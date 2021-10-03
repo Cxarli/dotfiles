@@ -110,22 +110,22 @@ SPACESHIP_PROMPT_ORDER=(
   host          # Hostname section
 
   git           # Git section (git_branch + git_status)
-  hg            # Mercurial section (hg_branch  + hg_status)
-  package       # Package version
-  node          # Node.js section
-  ruby          # Ruby section
-  elixir        # Elixir section
+  #hg            # Mercurial section (hg_branch  + hg_status)
+  #package       # Package version
+  #node          # Node.js section
+  #ruby          # Ruby section
+  #elixir        # Elixir section
   #xcode         # Xcode section
   #swift         # Swift section
-  golang        # Go section
-  php           # PHP section
-  rust          # Rust section
-  haskell       # Haskell Stack section
-  julia         # Julia section
-  docker        # Docker section
+  #golang        # Go section
+  #php           # PHP section
+  #rust          # Rust section
+  #haskell       # Haskell Stack section
+  #julia         # Julia section
+  #docker        # Docker section
   #aws           # Amazon Web Services section
   #gcloud        # Google Cloud Platform section
-  venv          # virtualenv section
+  #venv          # virtualenv section
   #conda         # conda virtualenv section
   #pyenv         # Pyenv section
   #dotnet        # .NET section
@@ -146,9 +146,9 @@ SPACESHIP_CHAR_SYMBOL='>'
 SPACESHIP_CHAR_SUFFIX=' '
 SPACESHIP_JOBS_SYMBOL='*'
 SPACESHIP_EXIT_CODE_SHOW=true
-SPACESHIP_EXIT_CODE_SYMBOL='x '
+SPACESHIP_EXIT_CODE_SYMBOL=''
 
-spaceship_vi_mode_disable
+# spaceship_vi_mode_disable
 
 
 
@@ -158,6 +158,9 @@ PERL_LOCAL_LIB_ROOT="/home/charlie/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB
 PERL_MB_OPT="--install_base \"/home/charlie/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/charlie/perl5"; export PERL_MM_OPT;
 
+
+export PATH="/home/charlie/.cargo/bin:/home/charlie/.local/bin:$PATH"
+export PATH="$PATH:/usr/bin/vendor_perl"
 
 
 
@@ -191,12 +194,45 @@ alias ll="ls -l"
 alias ip="ip --color=auto"
 alias grep="grep --color=auto"
 alias mv="mv -i"
-alias cp="cp -i"
+alias cp="cp -ri"
 alias rm="trash"
 alias sudo="sudo "
 alias ..="cd .."
 alias svim="sudoedit"
+alias cat="cat"
+
+alias java16="sudo archlinux-java set java-16-openjdk"
+alias java8="sudo archlinux-java set java-8-openjdk"
+
 
 function sus { sort | uniq -c | sort -n; }
 
+function config {
+	vim ~/.zshrc
+	source ~/.zshrc
+}
 
+alias launch-polybar=start-polybar
+
+
+function sla {
+	source ~/.screenlayout/home.sh
+	launch-polybar
+}
+
+
+function mkcd {
+	mkdir "${1:?Need dir}"
+	d "$1"
+}
+
+function youtube-dl-mp3 {
+	youtube-dl --audio-format mp3 -x "$@"
+}
+
+function ] {
+	for x in "$@"; do printf "{%s} " "$x"; done
+	echo
+}
+
+alias pwgen="pwgen -cnysB1"

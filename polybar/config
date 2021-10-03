@@ -18,7 +18,7 @@ height = 32
 ;offset-x = 1%
 ;offset-y = 1%
 fixed-center = true
-bottom = true
+# bottom = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -84,7 +84,9 @@ monitor = DVI-I-1-1
 inherit = bar/example
 monitor = DVI-I-2-2
 
-
+[bar/HDMI1]
+inherit = bar/example
+monitor = HDMI1
 
 
 [module/xwindow]

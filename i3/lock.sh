@@ -34,16 +34,16 @@ right=2
 	\
 	$(: clock) \
 	--force-clock \
-	--timepos="x+w/2:y+h/2-r*(3/2)" \
-		--timecolor=$white \
+	--time-pos="x+w/2:y+h/2-r*(3/2)" \
+		--time-color=$white \
 		--time-font=monospace \
-		--timesize=40 \
+		--time-size=40 \
 		--time-align=$center \
 	\
-	--datepos="tx:ty-40" \
-		--datecolor=$grey \
+	--date-pos="tx:ty-40" \
+		--date-color=$grey \
 		--date-font=monospace \
-		--datesize=20 \
+		--date-size=20 \
 		--date-align=$center \
 	\
 	$(: pass all keys) \
@@ -53,41 +53,41 @@ right=2
 	--pass-volume-keys \
 	\
 	$(: inside colors) \
-	--insidevercolor=$black \
-	--insidewrongcolor=330000cc \
-	--insidecolor=$black \
+	--insidever-color=$black \
+	--insidewrong-color=330000cc \
+	--inside-color=$black \
 	\
 	$(: ring colors) \
-	--ringvercolor=$cyan \
-	--ringwrongcolor=$red \
-	--ringcolor=$blacker \
+	--ringver-color=$cyan \
+	--ringwrong-color=$red \
+	--ring-color=$blacker \
 	\
 	$(: misc colors) \
-	--linecolor=$trans \
-	--keyhlcolor=$cyan \
-	--bshlcolor=$magenta \
-	--separatorcolor=$black \
-	--verifcolor=$white \
-	--wrongcolor=$red \
-	--layoutcolor=$white \
+	--line-color=$trans \
+	--keyhl-color=$cyan \
+	--bshl-color=$magenta \
+	--separator-color=$black \
+	--verif-color=$white \
+	--wrong-color=$red \
+	--layout-color=$white \
 	\
 	$(: greeter) \
-	--greetertext="Welcome back" \
-	--greetercolor=$white \
-	--greeterpos="x+w/2:y+3*h/4" \
+	--greeter-text="Welcome back" \
+	--greeter-color=$white \
+	--greeter-pos="x+w/2:y+3*h/4" \
 	--greeter-font=monospace \
-	--greetersize=30 \
+	--greeter-size=30 \
 	\
 	$(: ring) \
 	--radius=100 \
 	--ring-width=5.0 \
 	\
 	$(: texts) \
-	--veriftext="" \
-	--wrongtext="wrong" \
-	--noinputtext="" \
-	--locktext="locking..." \
-	--lockfailedtext="! LOCK FAILED !" \
+	--verif-text="" \
+	--wrong-text="wrong" \
+	--noinput-text="" \
+	--lock-text="locking..." \
+	--lockfailed-text="! LOCK FAILED !" \
 	\
 	"$@"
 

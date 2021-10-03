@@ -1,5 +1,8 @@
 #!/bin/sh
 
+cd "$(dirname "$0")"
+
+
 printf "" > config
 
 for f in $(echo *.conf | sort); do
