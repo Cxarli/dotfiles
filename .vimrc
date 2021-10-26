@@ -29,16 +29,10 @@ let g:syntastic_check_on_wq = 0
 " Modern terminal
 set encoding=utf-8
 set fileencoding=utf-8
-set ttyfast
-set mouse=a
-set fixendofline
-
-" Dvorak cursor movement on bottom left
-" noremap ; h
-" noremap q j
-" noremap j k
-" noremap k l
-
+set ttyfast " Send more characters to the terminal than visible
+set mouse=a " Enable the mouse in all modes
+set fixendofline " Always add a newline at the end of the file
+set wrapscan " Search wraps around the end of the file
 
 " Syntax higlighting
 syntax on
@@ -56,7 +50,7 @@ set undoreload=1000000
 " f : store file marks
 " h : disable hlsearch when reloading
 " r : don't store for files in /tmp
-set viminfo='1000,%1000,s1024,c,f1,h,r/tmp,n~/.vim/viminfo
+set viminfo='10000,%10000,s1024,c,f1,h,r/tmp,n~/.vim/viminfo
 
 " Theming
 colorscheme delek
@@ -94,21 +88,24 @@ call matchadd('Space', ' \+')
 call matchadd('LeadingSpace', '^ \+')
 call matchadd('LeadingSpace', '  \+')
 
-" Use hard tabs of 2 spaces wide
-set noexpandtab
-set copyindent
-set preserveindent
-set softtabstop=0
-set shiftwidth=2
-set tabstop=2
-" set smarttab
+" Configure whitespace usage
+set noexpandtab " Don't convert <TAB> to spaces
+set autoindent " Automatically indent
+set copyindent " Copy the existing indent structure
+set preserveindent " Preserve as much of the indent structure as possible
+set softtabstop=0 " Don't treat spaces like tabs
+set shiftwidth=0 " Use tabstop
+set tabstop=2 " Tabs are 2 spaces wide
+set nosmarttab " Don't use spaces
 
 " Disable highlighting
 nnoremap <silent> <leader><CR> :nohl<CR>
 " Go to next warning
-nnoremap <silent> <leader>, :ALENext<CR>
+nnoremap <silent> <leader>, :ALENextWrap<CR>
 " Add a newline
-nnoremap NN o<ESC>
+nnoremap <silent> NN o<ESC>
+" Remove the character
+nnoremap <silent> <BS> x
 
 " Jump back to last position
 au BufReadPost *
