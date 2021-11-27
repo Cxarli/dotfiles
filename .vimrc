@@ -3,21 +3,21 @@ source /etc/vimrc
 set nocompatible
 
 " Plugins
-execute pathogen#infect()
+" execute pathogen#infect()
 
 " Extra stuff
 let mapleader = ","
 set updatetime=1000
 
 " Plugin: Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 " Plugin: rust.vim
 " let g:rustfmt_autosave = 1
@@ -89,14 +89,17 @@ call matchadd('LeadingSpace', '^ \+')
 call matchadd('LeadingSpace', '  \+')
 
 " Configure whitespace usage
-set noexpandtab " Don't convert <TAB> to spaces
-set autoindent " Automatically indent
+" set autoindent " Automatically indent
 set copyindent " Copy the existing indent structure
 set preserveindent " Preserve as much of the indent structure as possible
+" set nosmarttab " Don't use spaces
 set softtabstop=0 " Don't treat spaces like tabs
-set shiftwidth=0 " Use tabstop
-set tabstop=2 " Tabs are 2 spaces wide
-set nosmarttab " Don't use spaces
+set shiftwidth=4 " Use tabstop
+set tabstop=4 " Character width of tabs
+set noexpandtab " Don't convert <TAB> to spaces
+
+" Whichever plugin does this, should be cursed
+autocmd BufReadPost *.rs set noexpandtab
 
 " Disable highlighting
 nnoremap <silent> <leader><CR> :nohl<CR>
@@ -105,7 +108,7 @@ nnoremap <silent> <leader>, :ALENextWrap<CR>
 " Add a newline
 nnoremap <silent> NN o<ESC>
 " Remove the character
-nnoremap <silent> <BS> x
+" nnoremap <silent> <BS> x
 
 " Jump back to last position
 au BufReadPost *

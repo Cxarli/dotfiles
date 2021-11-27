@@ -22,7 +22,7 @@ export DESKTOP_APP_DISABLE_GTK_INTEGRATION=1
 export EDITOR=vim
 export VISUAL=vim
 export NO_ZSH=1
-export TERM=rxvt-256color
+# export TERM=rxvt-256color
 export RUST_BACKTRACE=1
 
 
@@ -193,6 +193,7 @@ alias ls="ls --color=auto -A"
 alias ll="ls -l"
 alias ip="ip --color=auto"
 alias grep="grep --color=auto"
+alias ag="ag --hidden"
 alias mv="mv -i"
 alias cp="cp -ri"
 alias rm="trash"
@@ -207,6 +208,8 @@ alias java8="sudo archlinux-java set java-8-openjdk"
 
 function sus { sort | uniq -c | sort -n; }
 
+alias edit-zshrc=config
+alias ralias=config
 function config {
 	vim ~/.zshrc
 	source ~/.zshrc

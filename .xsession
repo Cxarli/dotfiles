@@ -38,4 +38,7 @@ ibus-daemon -dr
 languagetool --http --port 5555 --allow-origin '*' --public &> /tmp/languagetool &
 
 # redshift
-# redshift -l 52.3:4.6 &
+pidof redshift || redshift -l 52.3:4.6 -t 6500:2000 &
+
+# start tcc
+# tuxedo-control-center &
