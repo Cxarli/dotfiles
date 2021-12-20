@@ -225,8 +225,7 @@ function sla {
 
 
 function mkcd {
-	mkdir "${1:?Need dir}"
-	d "$1"
+	mkdir -p "${1:?Need dir}" && cd "$1"
 }
 
 function youtube-dl-mp3 {

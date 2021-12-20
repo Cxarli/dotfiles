@@ -110,6 +110,11 @@ nnoremap <silent> NN o<ESC>
 " Remove the character
 " nnoremap <silent> <BS> x
 
+" Global yank/paste
+nnoremap ,y :w! /tmp/vim<CR>
+nnoremap ,d :w! /tmp/vim<CR>gvd
+nnoremap ,p :r /tmp/vim<CR>
+
 " Jump back to last position
 au BufReadPost *
 	\ if line("'\"") > 1 && line("'\"") <= line("$")
