@@ -155,4 +155,4 @@ element-icon {
 	size: 2ch;
 }
 
-@import "/home/charlie/.config/rofi/mytheme.rasi"
+@import "~/.config/rofi/mytheme.rasi"

@@ -7,7 +7,7 @@ SAVEHIST=1000000
 setopt appendhistory extendedglob nomatch
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/charlie/.zshrc'
+zstyle :compinstall filename ~/.zshrc
 
 autoload -Uz compinit
 compinit
@@ -152,14 +152,14 @@ SPACESHIP_EXIT_CODE_SYMBOL=''
 
 
 
-PATH="/home/charlie/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/charlie/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/charlie/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/charlie/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/charlie/perl5"; export PERL_MM_OPT;
+PATH="$HOME/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 
 
-export PATH="/home/charlie/.cargo/bin:/home/charlie/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
 export PATH="$PATH:/usr/bin/vendor_perl"
 
 
@@ -194,6 +194,7 @@ alias ll="ls -l"
 alias ip="ip --color=auto"
 alias grep="grep --color=auto"
 alias ag="ag --hidden"
+alias rg='rg --hidden'
 alias mv="mv -i"
 alias cp="cp -ri"
 alias rm="trash"
