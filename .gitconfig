@@ -1,14 +1,10 @@
 [user]
 	email = 10348289+Cxarli@users.noreply.github.com
 	name = Cxarli
-	signingkey = 6C14628B0411A9A9
+	signingkey = EC03CBFD0898B4B14738DC530FC53E4D8E7E4122
+
 [commit]
 	gpgsign = true
 
 [pull]
 	rebase = true
-[filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f

@@ -1,0 +1,24 @@
+#!/bin/zsh
+
+# Quitting old instances
+while polybar-msg cmd quit; do
+	sleep 1
+done
+
+# Collecting environment
+# FIXME: what if multiple?
+export ETH_IFACE="$(ip -j link show up | jq -r 'map(select(.ifname|startswith("en"))|.ifname)|join(",")')"
+echo "eth_iface:'${ETH_IFACE}'"
+
+polybar --list-monitors | cut -d':' -f1 | while read MONITOR; do
+	# determine if monitor has a custom bar
+	if polybar --quiet --dump=monitor "${MONITOR}" &>/dev/null; then
+		bar="${MONITOR}"
+	else
+		bar="base"
+	fi
+
+	echo "monitor:'${MONITOR}' -> bar:'${bar}'"
+	polybar --log=notice --reload "${bar}" &> "/tmp/polybar-${MONITOR}.log" &
+done
+
