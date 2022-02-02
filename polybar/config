@@ -18,11 +18,11 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #370f
+background = #4f00
 background-alt = #670f
 ;foreground = ${xrdb:color7:#222}
 foreground = #fff
-foreground-alt = #999
+foreground-alt = #eee
 #primary = #ffb52a
 #secondary = #e60053
 #alert = #bd2c40
@@ -56,13 +56,13 @@ tray-position = none
 
 enable-ipc = true
 
-width = 96%
+width = 100%
 height = 32
-offset-x = 2%
+offset-x = 0
 bottom = "false"
 
 fixed-center = true
-override-redirect = true
+# override-redirect = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -306,7 +306,7 @@ label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted = "muted"
-label-muted-foreground = #666
+label-muted-foreground = #000
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
@@ -356,8 +356,9 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 [module/battery]
 type = internal/battery
 battery = BAT1
-adapter = ADP1
-full-at = 98
+adapter = ACAD
+# battery protection mode:
+full-at = 55
 
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = #ffb52a

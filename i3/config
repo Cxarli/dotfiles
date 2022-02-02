@@ -59,8 +59,9 @@ workspace_layout default
 # Set inner/outer gaps
 gaps inner 5
 gaps outer 0
-gaps top 30
+# gaps top 30
 for_window [class=".*"] border pixel 0
+smart_gaps on
 
 
 
@@ -383,6 +384,7 @@ for_window [class="Pamac-manager"] floating enable
 for_window [class="Xsane" instance="xsane"] floating enable
 for_window [class="Yad" instance="yad"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable
+for_window [class="matplotlib" instance="matplotlib"] floating enable
 
 ######################################
 # color settings for bar and windows #

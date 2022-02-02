@@ -133,6 +133,15 @@ alias rm='trash'
 alias sudo='sudo '
 alias pwgen='pwgen -cnysB1'
 alias tree='tree -aqUA'
+alias vim='nvim'
+alias gs='git status'
+alias gaa='git add -A'
+alias gc='git commit'
+alias gd='git diff'
+
+function gdo {
+	git diff origin/$(git branch --show-current)
+}
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -143,6 +152,7 @@ unsetopt -o AUTO_CD
 
 
 path+=~/.cargo/bin
+path+=~/.local/bin
 zstyle ':completion:*' special-dirs false
 
 function edit-zshrc {

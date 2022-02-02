@@ -1,7 +1,10 @@
-if ! has('nvim')
-	source /etc/vimrc
-	set nocompatible
-endif
+call plug#begin()
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'dense-analysis/ale'
+call plug#end()
+
+lua require('init')
 
 let mapleader = ","
 
@@ -18,11 +21,11 @@ syntax on
 
 " Enable history
 set history=10000
-set undodir=$HOME/.vim/undo
+set undodir=$HOME/.nvim/undo
 set undofile
 set undolevels=1000000
 set undoreload=1000000
-set viminfo='10000,%10000,s1024,c,f1,h,r/tmp,n~/.vim/viminfo
+set viminfo='10000,%10000,s1024,c,f1,h,r/tmp,n~/.nvim/viminfo
 
 " Theming
 set t_Co=256
@@ -31,10 +34,6 @@ set showcmd
 set showmatch
 set number
 set laststatus=2
-
-if ! has('nvim')
-	" set rtp+=/usr/lib/python3.10/site-packages/powerline/bindings/vim
-endif
 
 set title
 set colorcolumn=80,100,120
@@ -67,6 +66,6 @@ au BufReadPost *
        \| endif
 
 " Global yank/paste
-vnoremap <silent> <leader>y :w! /tmp/vim<CR>
-vnoremap <silent> <leader>d :w! /tmp/vim<CR>gvd
-nnoremap <silent> <leader>p :r /tmp/vim<CR>
+vnoremap <silent> <leader>y :w! /tmp/nvim<CR>
+vnoremap <silent> <leader>d :w! /tmp/nvim<CR>gvd
+nnoremap <silent> <leader>p :r /tmp/nvim<CR>
