@@ -308,7 +308,11 @@ set $ws12 "10"
 # no middle click pasting
 exec --no-startup-id xmousepasteblock
 
-#get auth work with polkit-gnome
+# no auto sleep
+exec_always --no-startup-id xset s off
+exec_always --no-startup-id xset -dpms
+
+# get auth to work with polkit-gnome
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # dex execute .desktop files
@@ -323,7 +327,10 @@ exec --no-startup-id dex --autostart --environment i3
 #exec --no-startup-id sh /usr/share/endeavouros/scripts/welcome --startdelay=3
 
 # configure compose key
-exec --no-startup-id "setxkbmap -layout 'us' -option 'compose:ralt'"
+exec_always --no-startup-id "setxkbmap -layout 'us' -option 'compose:ralt'"
+
+# start ibus daemon
+exec --no-startup-id "ibus-daemon --daemonize --desktop=i3 --replace --restart --verbose"
 
 # start conky:
 #exec_always --no-startup-id conky

@@ -47,7 +47,7 @@ monitor = HDMI-A-0
 
 modules-left = date pulseaudio
 modules-center = i3
-modules-right = memory cpu wlan eth battery temperature powermenu
+modules-right = ibus memory cpu wlan eth battery temperature powermenu
 
 
 [bar/base]
@@ -74,8 +74,8 @@ radius = 0
 border-size = 0
 border-color = #f000
 
-padding-left = 5%
-padding-right = 5%
+padding-left = 5
+padding-right = 5
 
 module-margin-left = 2
 module-margin-center = 1
@@ -85,7 +85,7 @@ font-0 = fixed:size=10;1
 font-1 = unifont:fontformat=truetype:pixelsize=10:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-tray-padding = 0
+tray-padding = 5
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
@@ -121,6 +121,20 @@ label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.secondary}
+
+[module/ibus]
+type = custom/script
+exec = "ibus engine"
+interval = 1
+
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-underline = ${colors.secondary}
+
+label = %output%
+
+click-left = ~/.config/polybar/scripts/ibus_toggle.sh
+
 
 [module/filesystem]
 type = internal/fs
@@ -287,10 +301,10 @@ type = internal/date
 interval = 5
 
 date = %a %d %b %Y
-date-alt = %Y-%m-%d
+# date-alt = %Y-%m-%d
 
 time = %H:%M:%S
-time-alt = %H:%M:%S
+# time-alt = %H:%M:%S
 
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}

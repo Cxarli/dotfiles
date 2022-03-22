@@ -27,6 +27,7 @@ vim.opt.title = true
 vim.opt.colorcolumn = { 80, 100, 120 }
 vim.cmd [[
 	syntax on
+	filetype plugin indent on
 	highlight ColorColumn ctermbg=lightgrey
 ]]
 
@@ -49,11 +50,16 @@ vim.opt.expandtab = false
 
 -- Plugins
 
+vim.g.ale_disable_lsp = 1
+
 local Plug = vim.fn['plug#']
 vim.call('plug#begin')
 -- Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'dense-analysis/ale'
+Plug('neoclide/coc.nvim', { branch = 'release' })
+
+Plug 'rust-lang/rust.vim'
 vim.call('plug#end')
 
 require('lualine').setup {
@@ -63,3 +69,20 @@ require('lualine').setup {
 	}
 }
 
+-- Rust support
+vim.g.ale_linters = {
+	rust = { 'analyzer', 'cargo', 'rls', 'rustc' }
+}
+vim.g.ale_fixers = {
+	rust = { 'rustfmt', 'trim_whitespace', 'remove_trailing_lines' }
+}
+
+-- Enable auto-complete
+vim.o.completeopt = 'menu,menuone,preview,noselect,noinsert'
+vim.g.ale_fix_on_save = 1
+vim.g.ale_sign_column_always = 1
+vim.g.ale_completion_enabled = 1
+
+vim.cmd [[
+	nnoremap <C-Return> :ALEGoToDefinition<CR>
+]]
