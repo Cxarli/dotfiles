@@ -275,18 +275,18 @@ exec --no-startup-id autorandr --change --force
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
-set $ws11 "10"
-set $ws12 "10"
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
+set $ws11 11
+set $ws12 12
 
 # use workspaces on different displays:
 # where you have to replace VGA-0/HDMI-0 with the names for your displays
@@ -311,6 +311,8 @@ exec --no-startup-id xmousepasteblock
 # no auto sleep
 exec_always --no-startup-id xset s off
 exec_always --no-startup-id xset -dpms
+# set powersavings for display:
+# exec --no-startup-id xset s 480 dpms 600 600 600
 
 # get auth to work with polkit-gnome
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -330,7 +332,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec_always --no-startup-id "setxkbmap -layout 'us' -option 'compose:ralt'"
 
 # start ibus daemon
-exec --no-startup-id "ibus-daemon --daemonize --desktop=i3 --replace --restart --verbose"
+# exec --no-startup-id "ibus-daemon --daemonize --desktop=i3 --replace --restart --verbose"
 
 # start conky:
 #exec_always --no-startup-id conky
@@ -370,9 +372,6 @@ exec --no-startup-id picom --daemon --log-level INFO --log-file /tmp/picom.log -
 
 # networkmanager-applet
 exec --no-startup-id nm-applet
-
-# set powersavings for display:
-exec --no-startup-id xset s 480 dpms 600 600 600
 
 # Desktop notifications
 exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc

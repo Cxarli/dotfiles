@@ -138,6 +138,7 @@ alias gs='git status'
 alias gaa='git add -A'
 alias gc='git commit'
 alias gd='git diff'
+alias rg="rg -S"
 
 function gdo {
 	git diff origin/$(git branch --show-current)

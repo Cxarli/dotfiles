@@ -56,8 +56,8 @@ local Plug = vim.fn['plug#']
 vim.call('plug#begin')
 -- Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'dense-analysis/ale'
-Plug('neoclide/coc.nvim', { branch = 'release' })
+-- Plug 'dense-analysis/ale'
+-- Plug('neoclide/coc.nvim', { branch = 'release' })
 
 Plug 'rust-lang/rust.vim'
 vim.call('plug#end')

@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# put this file in /usr/local/bin/sway-wrapper
+# then open /usr/share/wayland-sessions/sway.desktop
+# and change the Exec= to there
+
+
+# // ADDED bY ME \\
+env > /tmp/wrapper-env
+set > /tmp/wrapper-set
+printf "<%s>;" "$*" > /tmp/wrapper-argv
+
+export SDL_VIDEODRIVER=wayland
+export _JAVA_AWT_WM_NONREPARENTING=1
+export QT_QPA_PLATFORM=wayland
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_DESKTOP=sway
+# \\ END //
+
+
+/usr/bin/sway "$@"
