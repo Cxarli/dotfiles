@@ -114,7 +114,7 @@ typeset -A menu
 # Menu with keys/commands
 
 menu=(
-  [ Logout]="i3-msg exit"
+  [ Logout]="i3-msg exit || swaymsg exit"
   [ Lock]="$HOME/.config/i3/scripts/blur-lock.sh"
   [ Hibernate]="systemctl hibernate"
   [ Suspend]="systemctl suspend"

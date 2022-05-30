@@ -33,6 +33,9 @@ output * bg /usr/share/endeavouros/backgrounds/eos_wallpapers_community/sgs_2_wo
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
+# way-displays
+exec --no-startup-id 'way-displays'
+
 # waybar
 exec_always --no-startup-id 'pkill waybar; waybar'
 
@@ -42,6 +45,13 @@ default_floating_border none
 for_window [class=".*"] border none
 
 # persistent clipboard even when apps close
-exec wl-paste --primary --watch wl-copy
+# exec --no-startup-id wl-paste --primary --watch wl-copy
+
+# flameshot doesn't work reliable
+bindsym Shift+Print exec grimshot copy area
+
+unbindsym $mod+space
+bindsym $mod+space exec wofi-emoji
+
 
 include /etc/sway/config.d/*

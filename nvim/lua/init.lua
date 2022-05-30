@@ -60,6 +60,10 @@ Plug 'nvim-lualine/lualine.nvim'
 -- Plug('neoclide/coc.nvim', { branch = 'release' })
 
 Plug 'rust-lang/rust.vim'
+Plug 'vim-crystal/vim-crystal'
+
+Plug 'gpanders/editorconfig.nvim'
+
 vim.call('plug#end')
 
 require('lualine').setup {

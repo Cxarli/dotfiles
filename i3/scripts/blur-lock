@@ -1,11 +1,28 @@
 #!/usr/bin/env bash
 
-PICTURE=/tmp/i3lock.png
-SCREENSHOT="scrot $PICTURE"
+IMGDIR="$(mktemp -d)"
 
-BLUR="5x4"
+if [[ "${XDG_CURRENT_DESKTOP}" = "sway" ]]; then
 
-$SCREENSHOT
-convert $PICTURE -blur $BLUR $PICTURE
-i3lock -i $PICTURE
-rm $PICTURE
+	# https://github.com/swaywm/swaylock/issues/43
+	# https://gist.github.com/singulared/7c6d53c1b84fbb7cf22d07c5c7d3e945
+
+	for OUTPUT in `swaymsg -t get_outputs | jq -r '.[] | select(.active == true) | .name'`
+	do
+		IMAGE="${IMGDIR}/${OUTPUT}.png"
+		grim -o "${OUTPUT}" "${IMAGE}"
+		convert "${IMAGE}" -blur 5x4 "${IMAGE}"
+		LOCKARGS="${LOCKARGS} --image ${OUTPUT}:${IMAGE}"
+	done
+	swaylock $LOCKARGS
+
+else
+
+	IMAGE="${IMGDIR}/lock.png"
+	scrot "${IMAGE}"
+	convert "${IMAGE}" -blur 5x4 "${IMAGE}"
+	i3lock -i "${IMAGE}"
+
+fi
+
+rm -r "${IMGDIR}"

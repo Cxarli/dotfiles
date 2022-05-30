@@ -10,8 +10,8 @@
 	"modules-left": [
 		"clock",
 		"backlight",
-		"pulseaudio",
-		"sway/window",
+		"pulseaudio"
+		// "sway/window",
 	],
 	"modules-center": [
 		"sway/mode",
@@ -53,7 +53,7 @@
 	"clock": {
 		"interval": 1,
 		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-		"format": "{:%d %B %Y %H:%M:%S}"
+		"format": "{:%a %d %B %Y %H:%M:%S}"
 	},
 
 	"cpu": {

@@ -5,17 +5,17 @@
 # and change the Exec= to there
 
 
-# // ADDED bY ME \\
-env > /tmp/wrapper-env
-set > /tmp/wrapper-set
-printf "<%s>;" "$*" > /tmp/wrapper-argv
-
+# Needed for flameshot
 export SDL_VIDEODRIVER=wayland
 export _JAVA_AWT_WM_NONREPARENTING=1
-export QT_QPA_PLATFORM=wayland
+#export QT_QPA_PLATFORM=wayland
+export QT_QPA_PLATFORM=xcb
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_DESKTOP=sway
-# \\ END //
 
+# Needed for compose key
+export XKB_DEFAULT_LAYOUT=us
+export XKB_DEFAULT_VARIANT=altgr-intl
+export XKB_DEFAULT_OPTIONS=compose:ralt
 
-/usr/bin/sway "$@"
+/usr/bin/dbus-launch /usr/bin/sway "$@"
