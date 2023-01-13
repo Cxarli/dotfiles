@@ -1,2 +1,3 @@
 #!/bin/zsh
+sleep 1
 nitrogen --set-color="#000" --restore

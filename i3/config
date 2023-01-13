@@ -153,7 +153,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # keybinding in fancy rofi (automated):
-bindsym F1 exec ~/.config/i3/scripts/keyhint-2
+# bindsym F1 exec ~/.config/i3/scripts/keyhint-2
+
 # alternative
 # keybinding list in editor:
 # bindsym $mod+F1 exec xed ~/.config/i3/keybindings
@@ -391,6 +392,7 @@ for_window [class="Xsane" instance="xsane"] floating enable
 for_window [class="Yad" instance="yad"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable
 for_window [class="matplotlib" instance="matplotlib"] floating enable
+for_window [class="Florence"] floating enable
 
 ######################################
 # color settings for bar and windows #
@@ -458,3 +460,9 @@ bindsym $mod+i exec rofi -show combi -config ~/.config/rofi/rofidmenu.rasi
 bindsym F9 exec rofi -show combi -config ~/.config/rofi/rofidmenu.rasi
 bindsym Menu exec rofi -show combi -config ~/.config/rofi/rofidmenu.rasi
 
+
+bindsym Insert exec setxkbmap -layout 'us' -option 'compose:ralt'
+
+
+# disable paste
+bindsym Shift+Insert exec true

@@ -15,3 +15,6 @@ au BufReadPost *
 vnoremap <silent> <leader>y :w! /tmp/nvim<CR>
 vnoremap <silent> <leader>d :w! /tmp/nvim<CR>gvd
 nnoremap <silent> <leader>p :r /tmp/nvim<CR>
+
+
+autocmd BufReadPost *.ejs set filetype=html

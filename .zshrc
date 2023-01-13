@@ -94,6 +94,11 @@ plugins=(
 
 # User configuration
 
+
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[comment]='fg=white'
+
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -123,25 +128,49 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
+
+export EDITOR=helix
+export VISUAL=helix
+export SUDO_EDITOR=helix
+export BROWSER=firefox
+export PAGER=less
+
 alias ls='ls -A --color=auto'
 alias ip='ip --color=auto'
 alias grep='grep --color=auto'
-alias rg='rg --hidden'
+
+alias rg='rg --hidden -S -L -g "!git"'
+
 alias mv='mv -i'
 alias cp='cp -i'
 alias rm='trash'
 alias sudo='sudo '
+
 alias pwgen='pwgen -cnysB1'
 alias tree='tree -aqUA'
-alias vim='nvim'
+
 alias gs='git status'
 alias gaa='git add -A'
 alias gc='git commit'
-alias gd='git diff'
-alias rg="rg -S"
+alias gl='git log'
 
+export NOYARN="':(exclude)yarn.lock'"
+alias gd='git diff'
+alias gdh="git diff HEAD $NOYARN"
+
+alias hx="helix"
+
+function gdl {
+	gd --color=always "$@" | less -R
+}
 function gdo {
-	git diff origin/$(git branch --show-current)
+	git diff "origin/$(git branch --show-current)" "$@"
+}
+function gdol {
+	gdo --color=always "$@" | less -R
+}
+function gpuo {
+	git push -u origin "$(git branch --show-current)"
 }
 
 alias ..='cd ..'
@@ -157,7 +186,7 @@ path+=~/.local/bin
 zstyle ':completion:*' special-dirs false
 
 function edit-zshrc {
-	vim ~/.zshrc
+	"${EDITOR}" ~/.zshrc
 	source ~/.zshrc
 }
 
@@ -168,6 +197,6 @@ function wget {
 
 function sus { sort | uniq -c | sort -n; }
 
-export EDITOR=nvim
-export VISUAL=nvim
-export BROWSER=firefox
+
+setopt IGNORE_EOF
+source /usr/share/nvm/init-nvm.sh

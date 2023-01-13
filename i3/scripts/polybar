@@ -1,5 +1,14 @@
 #!/bin/zsh
 
+lockfile=/tmp/polybar.lck
+
+if [[ -f "${lockfile}" ]]; then
+	rm "${lockfile}"
+	exit 1
+fi
+touch "${lockfile}"
+
+
 # Quitting old instances
 while polybar-msg cmd quit; do
 	sleep 1
@@ -22,3 +31,4 @@ polybar --list-monitors | cut -d':' -f1 | while read MONITOR; do
 	polybar --log=notice --reload "${bar}" &> "/tmp/polybar-${MONITOR}.log" &
 done
 
+rm "${lockfile}"

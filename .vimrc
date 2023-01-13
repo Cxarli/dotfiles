@@ -66,6 +66,9 @@ au BufReadPost *
        \| exe "normal! g`\""
        \| endif
 
+
+autocmd BufReadPost *.ejs set filetype=html
+
 " Global yank/paste
 vnoremap <silent> <leader>y :w! /tmp/vim<CR>
 vnoremap <silent> <leader>d :w! /tmp/vim<CR>gvd
