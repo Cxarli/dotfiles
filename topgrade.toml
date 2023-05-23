@@ -3,7 +3,9 @@
 
 # Disable specific steps - same options as the command line flag
 #disable = ["system", "emacs"]
-disable = ["git_repos", "vim"]
+disable = ["git_repos", "vim", "firmware"]
+
+display_preamble = false
 
 # Ignore failures for these steps
 #ignore_failures = ["powershell"]

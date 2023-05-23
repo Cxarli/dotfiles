@@ -391,8 +391,12 @@ for_window [class="Pamac-manager"] floating enable
 for_window [class="Xsane" instance="xsane"] floating enable
 for_window [class="Yad" instance="yad"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable
-for_window [class="matplotlib" instance="matplotlib"] floating enable
 for_window [class="Florence"] floating enable
+
+for_window [class="i3-float"] floating enable
+for_window [class="I3-float"] floating enable
+for_window [class="matplotlib"] floating enable
+for_window [class="Matplotlib"] floating enable
 
 ######################################
 # color settings for bar and windows #
@@ -456,7 +460,7 @@ client.urgent		    $urgentred	$urgentred	$white		$purple		$yellowbrown
 # Application menu handled by rofi: #
 #####################################
 
-bindsym $mod+i exec rofi -show combi -config ~/.config/rofi/rofidmenu.rasi
+# bindsym $mod+i exec rofi -show combi -config ~/.config/rofi/rofidmenu.rasi
 bindsym F9 exec rofi -show combi -config ~/.config/rofi/rofidmenu.rasi
 bindsym Menu exec rofi -show combi -config ~/.config/rofi/rofidmenu.rasi
 

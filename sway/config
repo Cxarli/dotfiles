@@ -10,7 +10,7 @@ include $HOME/.config/i3/config
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/endeavouros/backgrounds/eos_wallpapers_community/sgs_2_wob.jpg fill
+# output * bg /usr/share/endeavouros/backgrounds/eos_wallpapers_community/sgs_2_wob.jpg fill
 
 #
 # Example configuration:

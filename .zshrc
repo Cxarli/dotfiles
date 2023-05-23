@@ -143,15 +143,18 @@ alias rg='rg --hidden -S -L -g "!git"'
 
 alias mv='mv -i'
 alias cp='cp -i'
-alias rm='trash'
+# alias rm='trash'  # autocomplete is borked
+alias rm='rm -i'
 alias sudo='sudo '
+alias xargs='xargs '
 
 alias pwgen='pwgen -cnysB1'
 alias tree='tree -aqUA'
 
+alias g='git'
 alias gs='git status'
 alias gaa='git add -A'
-alias gc='git commit'
+alias gaac='git add -A ; git commit'
 alias gl='git log'
 
 export NOYARN="':(exclude)yarn.lock'"
@@ -197,6 +200,19 @@ function wget {
 
 function sus { sort | uniq -c | sort -n; }
 
+function activate {
+	. ./venv/bin/activate
+}
+
 
 setopt IGNORE_EOF
 source /usr/share/nvm/init-nvm.sh
+
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+
+# keep up-arrow untouched
+export ATUIN_NOBIND=1
+eval "$(atuin init zsh)"
+bindkey '^r' _atuin_search_widget
+
