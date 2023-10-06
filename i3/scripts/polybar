@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+sleep 1
+
 lockfile=/tmp/polybar.lck
 
 if [[ -f "${lockfile}" ]]; then

@@ -161,6 +161,7 @@ bindsym $mod+Shift+r restart
 
 # emoji picker
 bindsym $mod+space exec emoji-picker
+bindsym $mod+Ctrl+space exec rofimoji --skin-tone neutral --max-recent 10
 
 # Backlight control
 bindsym XF86MonBrightnessUp exec brightnessctl -d amdgpu_bl0 set 10%+
@@ -369,7 +370,7 @@ exec --no-startup-id hsetroot -solid "#000"
 #exec --no-startup-id xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
 # or:
 # picom: https://wiki.archlinux.org/title/Picom
-exec --no-startup-id picom --daemon --log-level INFO --log-file /tmp/picom.log --backend glx
+exec --no-startup-id killall picom && picom --daemon --log-level INFO --log-file /tmp/picom.log --backend glx
 
 # networkmanager-applet
 exec --no-startup-id nm-applet

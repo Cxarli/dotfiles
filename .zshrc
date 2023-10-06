@@ -206,7 +206,6 @@ function activate {
 
 
 setopt IGNORE_EOF
-source /usr/share/nvm/init-nvm.sh
 
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
