@@ -215,3 +215,4 @@ export ATUIN_NOBIND=1
 eval "$(atuin init zsh)"
 bindkey '^r' _atuin_search_widget
 
+source /usr/share/nvm/init-nvm.sh

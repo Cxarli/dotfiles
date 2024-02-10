@@ -230,6 +230,9 @@ bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
 
+bindsym Ctrl+Prior exec amixer -D pulse sset Master 1%+ && pkill -RTMIN+1 i3blocks
+bindsym Ctrl+Next  exec amixer -D pulse sset Master 1%- && pkill -RTMIN+1 i3blocks
+
 # Pulse Audio controls
 
 #volume up
@@ -393,6 +396,7 @@ for_window [class="Xsane" instance="xsane"] floating enable
 for_window [class="Yad" instance="yad"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable
 for_window [class="Florence"] floating enable
+for_window [class="Gpick"] floating enable
 
 for_window [class="i3-float"] floating enable
 for_window [class="I3-float"] floating enable
